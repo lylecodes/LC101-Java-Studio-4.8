@@ -4,13 +4,13 @@ public class MenuItem {
 
     // Fields
     private String name;
-    private float price;
+    private double price;
     private String description;
     private String category;
     private boolean isNew;
 
     // Constructor
-    public MenuItem(String name, float price, String description,
+    public MenuItem(String name, double price, String description,
                     String category, boolean isNew){
         this.name = name;
         this.price = price;
@@ -18,7 +18,6 @@ public class MenuItem {
         this.category = category;
         this.isNew = isNew;
     }
-
     // Setters
     private void setName(String aName) {
         this.name = aName;
@@ -40,16 +39,30 @@ public class MenuItem {
     public String getName() {
         return this.name;
     }
-    public float getPrice() {
+    public double getPrice() {
         return this.price;
     }
-    public String getDescription() {
-        return this.description;
-    }
+    public String getDescription() { return this.description; }
     public String getCategory() {
         return this.category;
     }
     public boolean getIsNew() {
         return this.isNew;
+    }
+
+    // Other methods
+    public void printItem() {
+        System.out.println(getName());
+        System.out.println(getPrice());
+        System.out.println(getDescription());
+        System.out.println(getIsNew());
+        System.out.println(getCategory());
+    }
+    public boolean equals(Object toBeCompared) {
+        if (toBeCompared == this) return true;
+        if (toBeCompared == null) return false;
+        if (toBeCompared.getClass() != getClass()) return false;
+        MenuItem item = (MenuItem) toBeCompared;
+        return item.getName().equals(getName());
     }
 }
